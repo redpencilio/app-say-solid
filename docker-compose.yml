@@ -6,7 +6,7 @@ services:
     links:
       - dispatcher:dispatcher
   dispatcher:
-    image: semtech/mu-dispatcher:1.1.2
+    image: semtech/mu-dispatcher:2.0.0
     links:
       - resource:resource
     volumes:
@@ -25,3 +25,7 @@ services:
       - db:database
     volumes:
       - ./config/resources:/config
+  frontend:
+    image: redpencil/frontend-say-solid
+    links:
+      - identifier:backend
